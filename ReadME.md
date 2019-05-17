@@ -5,7 +5,7 @@
 
 **Brief Information**
 
-![](images/intro_pic.png)
+![intro](images/intro_pic.png)
 
 This project uses KUKA KR210 - 6 DOF serial manipulator to pick up an object from shelves, and drop it to a bin standing next to the manipulator. 
 
