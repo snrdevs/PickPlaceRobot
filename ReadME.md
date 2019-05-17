@@ -5,7 +5,7 @@
 
 **Brief Information**
 
-![1558081020231](/home/hsn/.config/Typora/typora-user-images/1558081020231.png)
+![](images/intro_pic.png)
 
 This project uses KUKA KR210 - 6 DOF serial manipulator to pick up an object from shelves, and drop it to a bin standing next to the manipulator. 
 
@@ -21,7 +21,7 @@ https://github.com/udacity/RoboND-Kinematics-Project/blob/master/README.md
 
 Step 1 is the completing DH Parameter table while solving inverse kinematics problem. 
 
- ![kuka_DH_diagram](/home/hsn/catkin_ws/src/RoboND-Kinematics-Project/images/kuka_DH_diagram.png)
+ ![kuka_DH_diagram](images/kuka_DH_diagram.png)
 
 To calculate DH table, upper image was taken as reference, because all joints' and links' axes and the distances between joints can be seen clearly. 
 
@@ -60,11 +60,9 @@ From upper image & table our DH Table becomes:
 
 The transformation matrix can be calculated by substituting the DH parameters from the table above into this matrix by applying mathematical expressions: 
 
-![img](file:///home/hsn/.config/Typora/typora-user-images/1558089444526.png?lastModify=1558089531)
-
-![1558089486726](/home/hsn/.config/Typora/typora-user-images/1558089486726.png)
 
 
+![joint_based_tf_m](images/joint_based_tf_m.png)
 
 
 
@@ -101,9 +99,9 @@ Then, transformation matrix from base_link to end_effector is calculated:
 
 ## 2.3. Inverse Kinematics
 
-Wrist center calculated with the formula below: 
+Wrist center calculated with the formula below:
 
-![1558087819788](/home/hsn/.config/Typora/typora-user-images/1558087819788.png)
+​	![1558091719577](images/1558091719577.png)
 
 But to calculate WC, firstly rotation of end effector matrix depending on roll, pitch and yaw must be created:
 
@@ -135,7 +133,7 @@ But to calculate WC, firstly rotation of end effector matrix depending on roll, 
 
 *`Rot_Error`* comes from the difference of frames between the gripper reference frame as defined in URDF vs. the DH parameters. To overcome this issue, it's suggested about to rotate Z axis then X axis. 
 
-![1558088052070](/home/hsn/.config/Typora/typora-user-images/1558088052070.png)
+![images/diff_urdf_dh.png](images/diff_urdf_dh.png)
 
 Since we have `ROT_EE` we can calculate, Wrist Center: 
 
@@ -155,21 +153,17 @@ WC = EE - (0.303) * ROT_EE[:,2]
 theta1 = atan2(WC[1], WC[0])
 ```
 
-![1558088503657](/home/hsn/.config/Typora/typora-user-images/1558088503657.png)
+![images/theta1.png](images/theta1.png)
 
 > Image: Udacity 
 
 *Calculating theta2:*
 
-
-
-![1558089158062](/home/hsn/.config/Typora/typora-user-images/1558089158062.png)
+![images/theta2.png](images/theta2.png)
 
 > Image: Udacity 
 
-
-
-![1558089823625](/home/hsn/.config/Typora/typora-user-images/1558089823625.png)
+![images/theta3.png](images/theta3.png)
 
 > Image: Udacity 
 
@@ -206,7 +200,7 @@ In this section there will be several images of successful jobs:
 
 These images can be found in `images` folder
 
-![1558091002074](/home/hsn/.config/Typora/typora-user-images/1558091002074.png)
+![images/s1.jpg](images/s1.jpg)
 
-![1558091029479](/home/hsn/.config/Typora/typora-user-images/1558091029479.png)
+![images/s2.jpg](images/s2.jpg)
 
